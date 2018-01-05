@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="custom.css">
+	<title>SoundOn</title>
+</head>
+<body>
+	<div class="container-fluid" ng-controller="weatherCtrl">
+		<header>
+			<h1>SoundOn</h1>
+			<p>Find the weather. Find your groove</p>
+			<hr>
+		</header>
+		<div class="row" id="tempWind">
+			<div class="temp col">
+				{{tempF}} &#8457;
+			</div>
+
+			<div class="wind col">
+				wind:<br>{{wind}}
+			</div>
+		</div>
+		<div class="city col">
+			<strong class="center mb-5">{{location}}</strong>
+		</div>
+		<form ng-submit="newLocation()" class="searchbar">
+			<input type="text" class="form-control input-lg w-75" ng-model="locale" placeholder="weather in your city"></input>
+		</form>
+		<!-- <div id="song" class="text-center collapse">Your Listening to track #{{ii + 1}}</div> -->
+		<div class="weather col">{{description}}</div>
+
+
+		<div class="row">
+			<div class="col-sm-7">
+			<table id="table" class="collapse">
+				<thead>
+					<tr>
+						<th class="text-center">Track title</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr ng-repeat="track in tracks">
+						<td id="active">{{track.title}}</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+
+			<div class="col-sm-5">
+				<div id="playbtn" class="pausebtn collapse">
+				</div>
+			</div>
+		</div>
+		<small class="text-right fixed-bottom">Powered by AngularJS</small>
+	</div>
+
+	<script src="angular-dep/jquery.min.js"></script>
+	<script src="angular-dep/angular.min.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
