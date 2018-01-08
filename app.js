@@ -33,7 +33,7 @@ angular.module('myapp',[])
 		console.log("there was an error", error)
 	};
 	//API Query for coordinates
-	$http.get('http://ip-api.com/json/').then(SuccessCallback, errorCallback);
+	$http.get('https://ip-api.com/json/').then(SuccessCallback, errorCallback);
 
 	//Runs upon entering a city
 	$scope.audio = new Audio();
