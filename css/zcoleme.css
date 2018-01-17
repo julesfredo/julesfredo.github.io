@@ -15,6 +15,11 @@ body {
   padding: 0;
   left: 0;
   top: 0;
+  background-image: url("Home.jpg");
+  background-color: #f1f1f1; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 * {
@@ -91,6 +96,7 @@ a:hover {
 
 .super-container {
   margin: 36vh auto 0 !important;
+  background-image: url("img/Home.jpg");
 }
 
 .title {
