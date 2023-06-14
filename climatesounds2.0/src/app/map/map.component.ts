@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Loader } from "@googlemaps/js-api-loader"
 import { WeatherMapService } from "../weather-map.service";
 import { google } from 'google-maps';
-
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -17,7 +16,7 @@ export class MapComponent implements OnInit {
   // Catch the loaded coordinates
     this.weatherMapService.currentLat.subscribe(coords => this.lat = coords);
     this.weatherMapService.currentLng.subscribe(coords => this.lng = coords);
-  // As soon as can be read, load map with correct coordinates
+  // As soon as can be read, load map with correct coordinates as soon
     setTimeout(() => this.setMap(), 1500);
     this.weatherMapService.getSearch().subscribe(() => {
       setTimeout(() => this.setMap(), 1500);

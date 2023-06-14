@@ -3,14 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { ILocation } from './ILocation';
 import { OpenWeather } from './OpenWeather';
-import { Music } from './OpenWeather';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class WeatherMapService {
-  description: string = '';
   
   weatherApiKey: string = '67d4ac0e95120bc42f358dbe5cce49e8';
   openWeatherUrl: string = 'http://api.openweathermap.org/data/2.5/weather?lat=';
@@ -18,13 +16,11 @@ export class WeatherMapService {
   lat: number = 0;
   lng: number = 0;
   private search = new Subject();
-  
+
   private coord1 = new BehaviorSubject(this.lat) ;
   private coord2 = new BehaviorSubject(this.lng) ;
-  private desc = new BehaviorSubject(this.description) ;
   currentLat = this.coord1.asObservable();
   currentLng = this.coord2.asObservable();
-  currentDsc = this.desc.asObservable();
 
   constructor(private http: HttpClient) { }
   getLocation(url: string):Observable<ILocation> {
@@ -50,9 +46,5 @@ export class WeatherMapService {
       console.log("search recieved service");
 
       return this.search.asObservable();
-    }
-
-    getMusic(url: string) {
-      return this.http.get<Music>(url);
     }
 }
